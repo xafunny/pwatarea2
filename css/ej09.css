@@ -1,0 +1,6 @@
+/* Estilos de ej09.html */
+  #tiempo { font-size: 60px; font-weight: bold; color: white; background: #1f2a44;
+            width: 90%; max-width: 300px; margin: 20px auto; padding: 20px; border-radius: 15px; }
+  input { padding: 8px; width: 100px; }
+  button { padding: 8px 15px; border: none; border-radius: 6px; background: #2fa86b;
+           color: white; cursor: pointer; }

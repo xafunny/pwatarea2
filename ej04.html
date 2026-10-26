@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 4</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej04.css">
+</head>
+<body>
+<h1>Ejercicio 4: Reloj</h1>
+<div class="reloj">
+  <img src="imagenes/esfera.svg" alt="Esfera">
+  <img id="hora" src="imagenes/hora.svg" alt="Hora">
+  <img id="minuto" src="imagenes/minuto.svg" alt="Minuto">
+  <img id="segundo" src="imagenes/segundo.svg" alt="Segundo">
+</div>
+<p id="digital"></p>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  function actualizar() {
+    var ahora = new Date();
+    var h = ahora.getHours();
+    var m = ahora.getMinutes();
+    var s = ahora.getSeconds();
+
+    var gradosHora = (h % 12) * 30 + m * 0.5;
+    var gradosMinuto = m * 6;
+    var gradosSegundo = s * 6;
+
+    document.getElementById("hora").style.transform = "rotate(" + gradosHora + "deg)";
+    document.getElementById("minuto").style.transform = "rotate(" + gradosMinuto + "deg)";
+    document.getElementById("segundo").style.transform = "rotate(" + gradosSegundo + "deg)";
+    document.getElementById("digital").innerHTML = ahora.toLocaleTimeString();
+  }
+  actualizar();
+  setInterval(actualizar, 1000);
+</script>
+</body>
+</html>

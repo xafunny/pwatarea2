@@ -1,0 +1,12 @@
+/* Estilos de ej02.html */
+  .calculadora { width: 100%; max-width: 300px; margin: auto; background: #1f2a44;
+                 padding: 15px; border-radius: 12px; }
+  #pantalla { width: 100%; box-sizing: border-box; height: 50px; font-size: 24px;
+              text-align: right; margin-bottom: 10px; padding: 5px; }
+  .botones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  button { padding: 15px 0; font-size: 20px; border: none; border-radius: 6px;
+           background: #2c56aa; cursor: pointer; }
+  button:hover { background: #104c74; }
+  .op { background: #e67e22; color: white; }
+  .igual { background: #2fa86b; color: white; }
+  .borrar { background: #c0392b; color: white; }

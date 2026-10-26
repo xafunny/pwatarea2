@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 10</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej10.css">
+</head>
+<body>
+<h1>Ejercicio 10: Preguntas y respuestas</h1>
+<div class="juego">
+  <h2 id="pregunta"></h2>
+  <div id="opciones"></div>
+</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  var preguntas = [
+    { texto: "¿Como se llama Bad Bunny?",
+      opciones: ["Benito Mastínez", "Maro Masis", "Juan Londoño"],
+      correcta: 0 },
+    { texto: "¿Cuál es el nombre de Alvaro Diaz?",
+      opciones: ["Jorge Álvaro", "Carlos Ozuna", "Wiliam Landron"],
+      correcta: 0 },
+    { texto: "¿Cual es la nota que nos va a poner profe?",
+      opciones: ["75", "100", "80"],
+      correcta: 1 },
+    { texto: "¿Qué significa KFC?",
+      opciones: ["Karlos frie Cuiyes", "Kentucky Fried Chicken", "Karina Frita Cebolla"],
+      correcta: 1 }
+  ];
+  var actual = 0;
+  var puntos = 0;
+
+  function mostrarPregunta() {
+    var p = preguntas[actual];
+    document.getElementById("pregunta").textContent = p.texto;
+    var html = "";
+    for (var i = 0; i < p.opciones.length; i++) {
+      html += "<button class='opcion' onclick='responder(" + i + ")'></button>";
+    }
+    document.getElementById("opciones").innerHTML = html;
+    var botones = document.getElementsByClassName("opcion");
+    for (var j = 0; j < botones.length; j++) {
+      botones[j].textContent = p.opciones[j];
+    }
+  }
+  function responder(numero) {
+    var botones = document.getElementsByClassName("opcion");
+    var correcta = preguntas[actual].correcta;
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].disabled = true;
+      if (i === correcta) {
+        botones[i].style.backgroundColor = "#4caf50";
+        botones[i].style.color = "white";
+      }
+    }
+    if (numero == preguntas[actual].correcta) {
+      puntos = puntos + 1;
+    } else {
+      botones[numero].style.backgroundColor = "#e53935";
+      botones[numero].style.color = "white";
+    }
+    setTimeout(function () {
+      actual = actual + 1;
+      if (actual < preguntas.length) {
+        mostrarPregunta();
+      } else {
+        document.getElementById("pregunta").textContent = "Juego terminado";
+        document.getElementById("opciones").innerHTML =
+          "<p>Tu puntuación: " + puntos + " de " + preguntas.length + "</p>" +
+          "<button class='opcion' onclick='reiniciar()'>Jugar de nuevo</button>";
+      }
+    }, 800);
+  }
+  function reiniciar() {
+    actual = 0;
+    puntos = 0;
+    mostrarPregunta();
+  }
+  mostrarPregunta();
+</script>
+</body>
+</html>

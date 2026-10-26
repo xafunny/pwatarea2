@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 2</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej02.css">
+<style>
+  .botones button {
+    background-color: black;
+    color: rgb(219, 12, 12);
+  }
+</style>
+</head>
+<body>
+<h1>Ejercicio 2: Calculadora</h1>
+<div class="calculadora">
+  <input type="text" id="pantalla" readonly>
+  <div class="botones">
+    <button onclick="poner('7')">7</button>
+    <button onclick="poner('8')">8</button>
+    <button onclick="poner('9')">9</button>
+    <button class="op" onclick="poner('/')">/</button>
+    <button onclick="poner('4')">4</button>
+    <button onclick="poner('5')">5</button>
+    <button onclick="poner('6')">6</button>
+    <button class="op" onclick="poner('*')">*</button>
+    <button onclick="poner('1')">1</button>
+    <button onclick="poner('2')">2</button>
+    <button onclick="poner('3')">3</button>
+    <button class="op" onclick="poner('-')">-</button>
+    <button onclick="poner('0')">0</button>
+    <button onclick="poner('.')">.</button>
+    <button class="borrar" onclick="borrar()">C</button>
+    <button class="op" onclick="poner('+')">+</button>
+    <button class="igual" style="grid-column: span 4;" onclick="calcular()">=</button>
+  </div>
+</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  var pantalla = document.getElementById("pantalla");
+
+  function poner(valor) {
+    pantalla.value = pantalla.value + valor;
+  }
+  function borrar() {
+    pantalla.value = "";
+  }
+  function calcular() {
+    try {
+      pantalla.value = eval(pantalla.value);
+    } catch (error) {
+      pantalla.value = "Error";
+    }
+  }
+</script>
+</body>
+</html>

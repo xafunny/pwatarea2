@@ -1,0 +1,70 @@
+/* ==========================================
+   ESTILOS GENERALES (se usan en todas las páginas)
+   ========================================== */
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f4f6fb;
+  color: #1f2a44;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  color: #1f2a44;
+  font-weight: 600;
+}
+
+/* línea decorativa debajo del título */
+h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #4f8cff;
+  border-radius: 2px;
+  margin: 10px auto 0;
+}
+
+p {
+  text-align: center;
+}
+
+a {
+  color: #4f8cff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* botones y campos con el mismo estilo */
+button {
+  font-family: inherit;
+  background: #4f8cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #3b74e0;
+}
+
+input {
+  font-family: inherit;
+  border: 1px solid #cfd6e4;
+  border-radius: 8px;
+  padding: 8px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4f8cff;
+}

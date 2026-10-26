@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 9</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej09.css">
+</head>
+<body>
+<h1>Ejercicio 9: Cuenta regresiva</h1>
+<p>Duración:
+  <input type="number" id="duracion" value="1" min="1">
+  <select id="unidad" aria-label="Unidad de tiempo">
+    <option value="1">segundos</option>
+    <option value="60" selected>minutos</option>
+  </select>
+  <button onclick="iniciar()">Iniciar</button>
+  <button id="botonPausa" onclick="alternarPausa()" disabled>Pausar</button>
+  <button onclick="iniciar()">Reiniciar</button>
+</p>
+<div id="tiempo">00:00</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  var reloj;
+  var restante = 0;
+  var pausado = false;
+
+  function mostrar() {
+    var min = Math.floor(restante / 60);
+    var seg = restante % 60;
+    if (min < 10) { min = "0" + min; }
+    if (seg < 10) { seg = "0" + seg; }
+    document.getElementById("tiempo").innerHTML = min + ":" + seg;
+  }
+  function iniciar() {
+    clearInterval(reloj);
+    var duracion = parseInt(document.getElementById("duracion").value, 10);
+    var unidad = parseInt(document.getElementById("unidad").value, 10);
+    restante = duracion * unidad;
+    if (!Number.isFinite(restante) || restante < 1) { return; }
+    pausado = false;
+    document.getElementById("botonPausa").textContent = "Pausar";
+    document.getElementById("botonPausa").disabled = false;
+    mostrar();
+    reloj = setInterval(function () {
+      if (pausado) { return; }
+      restante = restante - 1;
+      mostrar();
+      if (restante <= 0) {
+        clearInterval(reloj);
+        document.getElementById("botonPausa").disabled = true;
+        alert("¡Se acabó el tiempo!");
+      }
+    }, 1000);
+  }
+  function alternarPausa() {
+    pausado = !pausado;
+    document.getElementById("botonPausa").textContent = pausado ? "Reanudar" : "Pausar";
+  }
+</script>
+</body>
+</html>

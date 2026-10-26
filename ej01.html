@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 1</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej01.css">
+</head>
+<body>
+<h1>Ejercicio 1: cambia de color</h1>
+<div id="caja">¿cambio de color?</div>
+<p id="codigo-color" style="text-align: center;">RGB: —</p>
+<div style="text-align: center;">
+  <button onclick="cambiarColor()">Cambiar color</button>
+  <p><a href="index.html">Volver al menú</a></p>
+</div>
+
+<script>
+  function cambiarColor() {
+    var rojo = Math.floor(Math.random() * 256);
+    var verde = Math.floor(Math.random() * 256);
+    var azul = Math.floor(Math.random() * 256);
+    var color = "rgb(" + rojo + ", " + verde + ", " + azul + ")";
+    document.getElementById("caja").style.backgroundColor = color;
+    document.getElementById("codigo-color").textContent = "Código RGB: " + color;
+  }
+</script>
+</body>
+</html>

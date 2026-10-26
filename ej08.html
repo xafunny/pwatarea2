@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 8</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej08.css">
+<style>
+  .carrusel .controles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .carrusel .controles button.seleccionado {
+    background-color: #4caf50;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+<h1>Ejercicio 8: Carrusel de imágenes</h1>
+<div class="carrusel">
+  <img id="imagen" src="imagenes/slide1.jpg" alt="Carrusel">
+  <div class="controles">
+    <button onclick="anterior(); marcarBoton(this)">&laquo; Anterior</button>
+    <button onclick="siguiente(); marcarBoton(this)">Siguiente &raquo;</button>
+  </div>
+</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  var imagenes = ["imagenes/slide1.jpg", "imagenes/slide2.jpg", "imagenes/slide3.jpg"];
+  var posicion = 0;
+  var tiempo;
+
+  function mostrar() {
+    document.getElementById("imagen").src = imagenes[posicion];
+  }
+  function siguiente() {
+    posicion = posicion + 1;
+    if (posicion >= imagenes.length) { posicion = 0; }
+    mostrar();
+    reiniciar();
+  }
+  function anterior() {
+    posicion = posicion - 1;
+    if (posicion < 0) { posicion = imagenes.length - 1; }
+    mostrar();
+    reiniciar();
+  }
+  function reiniciar() {
+    clearInterval(tiempo);
+    tiempo = setInterval(siguiente, 3000);
+  }
+  function marcarBoton(boton) {
+    document.querySelectorAll(".carrusel .controles button").forEach(function(elemento) {
+      elemento.classList.remove("seleccionado");
+    });
+    boton.classList.add("seleccionado");
+  }
+  tiempo = setInterval(siguiente, 3000);
+</script>
+</body>
+</html>

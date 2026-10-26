@@ -1,0 +1,9 @@
+/* Estilos de ej06.html */
+  .contenedor { max-width: 400px; margin: auto; }
+  #nueva { width: 65%; padding: 8px; }
+  button { padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; }
+  #agregar { background: #2fa86b; color: white; }
+  ul { list-style: none; padding: 0; }
+  li { background: #eef2fa; margin-top: 8px; padding: 10px; border-radius: 6px;
+       display: flex; justify-content: space-between; align-items: center; }
+  li button { background: #c0392b; color: white; }

@@ -1,0 +1,5 @@
+/* Estilos de ej10.html */
+  .juego { max-width: 450px; margin: auto; background: #eef2fa; padding: 20px; border-radius: 12px; }
+  .opcion { display: block; width: 100%; margin-top: 10px; padding: 12px; border: none;
+            border-radius: 6px; background: #4f8cff; color: white; font-size: 16px; cursor: pointer; }
+  .opcion:hover { background: #3b74e0; }

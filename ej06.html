@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 6</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej06.css">
+</head>
+<body>
+<h1>Ejercicio 6: Lista de compras</h1>
+<div class="contenedor">
+  <input type="text" id="nueva" placeholder="Que vas a comprar?">
+  <button id="agregar" onclick="agregar()">Agregar</button>
+  <ul id="lista"></ul>
+</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  function agregar() {
+    var texto = document.getElementById("nueva").value;
+    if (texto == "") {
+      alert("Escribe una tarea");
+      return;
+    }
+    var li = document.createElement("li");
+    li.innerHTML = "<span>" + texto + "</span>";
+
+    var boton = document.createElement("button");
+    boton.innerHTML = "Eliminar";
+    boton.onclick = function () {
+      li.remove();
+    };
+
+    li.appendChild(boton);
+    document.getElementById("lista").appendChild(li);
+    document.getElementById("nueva").value = "";
+  }
+</script>
+</body>
+</html>

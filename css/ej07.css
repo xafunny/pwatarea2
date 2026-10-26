@@ -1,0 +1,16 @@
+/* Estilos de ej07.html */
+  .menu { background: #1f2a44; padding: 0; margin: 0; list-style: none; display: flex; flex-wrap: wrap; }
+  .menu > li { position: relative; }
+  .menu a { display: block; color: white; padding: 15px 20px; text-decoration: none; cursor: pointer; }
+  .menu a:hover { background: #2d3b5e; }
+  .submenu { display: none; position: absolute; background: #2d3b5e;
+             list-style: none; padding: 0; margin: 0; min-width: 160px; z-index: 5; }
+  .mostrar { display: block; }
+  .contenido { padding: 20px; text-align: center; }
+  @media (max-width: 500px) {
+    .menu { flex-direction: column; }
+    .submenu { position: static; }
+  }
+
+body { padding: 0; }
+.menu a:hover { text-decoration: none; }

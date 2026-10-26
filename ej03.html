@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 3</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej03.css">
+</head>
+<body>
+<h1>Ejercicio 3: Cambiar imagen</h1>
+<p>Poppy Play Time</p>
+<div style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
+  <img id="foto" src="imagenes/img1.jpg" alt="Imagen que cambia"
+    onmouseover="cambiar()" onmouseout="volver()">
+</div>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  var foto = document.getElementById("foto");
+  function cambiar() {
+    foto.src = "imagenes/img2.jpg";
+  }
+  function volver() {
+    foto.src = "imagenes/img1.jpg";
+  }
+</script>
+</body>
+</html>

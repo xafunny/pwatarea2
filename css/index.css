@@ -1,0 +1,12 @@
+/* Estilos de index.html */
+  header { background: #1f2a44; color: white; text-align: center; padding: 25px 10px; }
+  nav { max-width: 700px; margin: 20px auto; padding: 0 15px; }
+  nav a { display: block; background: white; color: #1f2a44; text-decoration: none;
+          padding: 15px; margin-bottom: 10px; border-radius: 8px;
+          border-left: 6px solid #4f8cff; }
+  nav a:hover { background: #4f8cff; color: white; }
+  footer { text-align: center; color: #666; padding: 20px; }
+
+body { padding: 0; }
+header h1 { color: white; }
+header { background: linear-gradient(135deg, #1f2a44, #4f8cff) !important; }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 5</title>
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/ej05.css">
+</head>
+<body>
+<h1>Ejercicio 5: Formulario</h1>
+<form onsubmit="return validar()">
+  <label>Nombre:</label>
+  <input type="text" id="nombre">
+  <label>Correo electrónico:</label>
+  <input type="text" id="correo">
+  <label>Contraseña:</label>
+  <input type="password" id="clave">
+  <button type="submit">Enviar</button>
+  <div id="mensaje"></div>
+</form>
+<p><a href="index.html">Volver al menú</a></p>
+
+<script>
+  function validar() {
+    var nombre = document.getElementById("nombre").value;
+    var correo = document.getElementById("correo").value;
+    var clave = document.getElementById("clave").value;
+    var mensaje = document.getElementById("mensaje");
+
+    if (nombre == "" || correo == "" || clave == "") {
+      mensaje.style.color = "red";
+      mensaje.innerHTML = "Debes llenar todos los campos";
+      return false;
+    }
+    mensaje.style.color = "green";
+    mensaje.innerHTML = "Formulario enviado correctamente";
+    return false; 
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+/* Estilos de ej04.html */
+  .reloj { position: relative; width: 300px; height: 300px; margin: 20px auto; }
+  .reloj img { position: absolute; top: 0; left: 0; width: 300px; height: 300px; }
+  #digital { font-size: 28px; font-weight: bold; }

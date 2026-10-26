@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicio 7</title>
+<link rel="stylesheet" href="css/ej07.css">
+</head>
+
+<body>
+
+<nav>
+  <ul class="menu">
+    <li><a href="index.html">Inicio</a></li>
+
+    <li>
+      <a href="#" onclick="mostrarSubmenu(event, 'sub1')">Productos ▾</a>
+      <ul class="submenu" id="sub1">
+        <li><a href="#">Mabel</a></li>
+        <li><a href="#">Jhoao</a></li>
+        <li><a href="#">Helados xd</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#" onclick="mostrarSubmenu(event, 'sub2')">Servicios ▾</a>
+      <ul class="submenu" id="sub2">
+        <li><a href="#">Envios a tu haus</a></li>
+        <li><a href="#">Envios a otro continente xd</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="contenido">
+  <h1>Ejercicio 7: Menú desplegable</h1>
+  <p>Arriba a la izquierda para ver el menú desplegable.</p>
+  <p><a href="index.html">Volver al menú principal</a></p>
+</div>
+
+<script>
+  function ocultarTodos() {
+    var submenus = document.getElementsByClassName("submenu");
+    for (var i = 0; i < submenus.length; i++) {
+      submenus[i].classList.remove("visible");
+      submenus[i].style.display = "none";
+    }
+  }
+
+  function mostrarSubmenu(evento, id) {
+    evento.preventDefault();
+    evento.stopPropagation();
+
+    var submenu = document.getElementById(id);
+    var estabaVisible = submenu.classList.contains("visible");
+
+    ocultarTodos();
+
+    if (!estabaVisible) {
+      submenu.classList.add("visible");
+      submenu.style.display = "block";
+    }
+  }
+
+  ocultarTodos();
+  document.addEventListener("click", ocultarTodos);
+</script>
+
+</body>
+</html>

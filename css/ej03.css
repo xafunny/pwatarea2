@@ -1,0 +1,4 @@
+/* Estilos de ej03.html */
+  img { width: 90%; max-width: 400px; border-radius: 15px;
+        border: 5px solid #1f2a44; transition: transform 0.5s, opacity 0.5s; }
+  img:hover { transform: scale(1.05); }
